@@ -1,5 +1,5 @@
 #import "MigrateLocalStorage.h"
-#import <WebKit/WebKit.h>
+/* #import <WebKit/WebKit.h> */
 @implementation MigrateLocalStorage
 
 - (BOOL)copyFrom:(NSString *)src to:(NSString *)dest {
