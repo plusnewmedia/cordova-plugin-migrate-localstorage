@@ -12,8 +12,6 @@ id="cordova-plugin-migrate-localstorage" version="0.0.2">
   https://github.com/ionic-team/cordova-plugin-migrate-localstorage.git</repo>
   <issue>
   https://github.com/ionic-team/cordova-plugin-migrate-localstorage/issues/</issue>
-  <dependency id="cordova-plugin-ionic-webview"
-  version="^4.1.1" />
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
       <feature name="MigrateLocalStorage">

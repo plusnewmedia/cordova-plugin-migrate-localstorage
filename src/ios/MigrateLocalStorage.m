@@ -65,7 +65,7 @@
 #endif
 
   target = [target stringByAppendingPathComponent:
-                       @"WebsiteData/LocalStorage/httpsionic_localhost_0.localstorage"];
+                       @"WebsiteData/LocalStorage/ionic_localhost_0.localstorage"];
 
   // Only copy data if no existing localstorage data exists yet for wkwebview
   if (![[NSFileManager defaultManager] fileExistsAtPath:target]) {
@@ -108,7 +108,7 @@
 #endif
 
   target = [target stringByAppendingPathComponent:
-                       @"WebsiteData/IndexedDB/http_localhost_8080"];
+                       @"WebsiteData/IndexedDB/ionic_localhost_0"];
 
   // Only copy data if no existing indexedDB data exists yet for wkwebview
   if (![[NSFileManager defaultManager] fileExistsAtPath:target]) {
