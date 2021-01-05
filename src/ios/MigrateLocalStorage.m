@@ -2,6 +2,10 @@
 /* #import <WebKit/WebKit.h> */
 @implementation MigrateLocalStorage
 
+- (id)settingForKey:(NSString *)key {
+  return [self.commandDelegate.settings objectForKey:[key lowercaseString]];
+}
+
 - (BOOL)copyFrom:(NSString *)src to:(NSString *)dest {
   NSFileManager *fileManager = [NSFileManager defaultManager];
 
@@ -28,7 +32,7 @@
   return [fileManager copyItemAtPath:src toPath:dest error:nil];
 }
 
-- (void)migrateLocalStorage {
+- (void)migrateLocalStorageWithScheme:(NSString *)scheme andHostname:(NSString *)hostname {
   // Migrate UIWebView local storage files to WKWebView. Adapted from
   // https://github.com/Telerik-Verified-Plugins/WKWebView/blob/master/src/ios/MyMainViewController.m
 
@@ -64,8 +68,10 @@
   target = [target stringByAppendingPathComponent:bundleIdentifier];
 #endif
 
-  target = [target stringByAppendingPathComponent:
-                       @"WebsiteData/LocalStorage/ionic_localhost_0.localstorage"];
+  //    @"WebsiteData/LocalStorage/scheme_hostname_0.localstorage"
+  NSString* path = [NSString stringWithFormat:@"%@/%@_%@_%@", @"WebsiteData/LocalStorage", scheme , hostname , @"0.localstorage"];
+  target = [target stringByAppendingPathComponent:path];
+
 
   // Only copy data if no existing localstorage data exists yet for wkwebview
   if (![[NSFileManager defaultManager] fileExistsAtPath:target]) {
@@ -79,7 +85,7 @@
   }
 }
 
-- (void)migrateIndexedDB {
+- (void)migrateIndexedDBWithScheme:(NSString *)scheme andHostname:(NSString *)hostname {
   // Migrate UIWebView indexDB files to WKWebView.
   NSLog(@"In INDEXEDDB MIGRATE");
   NSString *appLibraryFolder = [NSSearchPathForDirectoriesInDomains(
@@ -107,8 +113,10 @@
   target = [target stringByAppendingPathComponent:bundleIdentifier];
 #endif
 
-  target = [target stringByAppendingPathComponent:
-                       @"WebsiteData/IndexedDB/ionic_localhost_0"];
+  //    @"WebsiteData/IndexedDB/scheme_hostname_0"
+  NSString* path = [NSString stringWithFormat:@"%@/%@_%@_%@", @"WebsiteData/IndexedDB", scheme , hostname , @"0"];
+  target = [target stringByAppendingPathComponent:path];
+
 
   // Only copy data if no existing indexedDB data exists yet for wkwebview
   if (![[NSFileManager defaultManager] fileExistsAtPath:target]) {
@@ -119,8 +127,22 @@
 }
 
 - (void)pluginInitialize {
-  [self migrateLocalStorage];
-  [self migrateIndexedDB];
+  NSString* setting;
+  NSString* hostname = @"localhost";
+  NSString* scheme = @"app";
+
+    
+  setting  = @"hostname";
+  if ([self settingForKey:setting]) {
+    hostname = [self settingForKey:setting];
+  }
+  setting  = @"scheme";
+  if ([self settingForKey:setting]) {
+    scheme = [self settingForKey:setting];
+  }
+    
+  [self migrateLocalStorageWithScheme:scheme andHostname:hostname];
+  [self migrateIndexedDBWithScheme:scheme andHostname:hostname];
 }
 
 @end

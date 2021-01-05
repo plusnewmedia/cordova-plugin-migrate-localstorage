@@ -1,8 +1,6 @@
 # Migrate LocalStorage
 
-This plugin can be used in conjunction with
-[cordova-plugin-wkwebview-engine](https://github.com/apache/cordova-plugin-wkwebview-engine)
-to persist LocalStorage data when migrating from `UIWebView` to `WKWebView`. All related
+Plugin to persist LocalStorage and IndexedDB data when migrating from `UIWebView` to `WKWebView`. All related
 files will be copied over automatically during startup so the user can simply pick up where they
 left of.
 
@@ -10,8 +8,11 @@ left of.
 
 Simply add the plugin to your cordova project via the cli:
 ```sh
-cordoa plugin add cordova-plugin-migrate-localstorage
+cordova plugin add cordova-plugin-migrate-localstorage
 ```
+
+This plugin will detect scheme and hostname from cordova plugin.xml and use them for the migration. The default values for these are
+"app" for scheme and "localhost" for hostname.
 
 ## Notes
 
