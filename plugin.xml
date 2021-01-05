@@ -6,12 +6,8 @@ id="cordova-plugin-migrate-localstorage" version="0.0.3">
   <description>Migrate LocalStorage data from UIWebView to
   WKWebView</description>
   <license>Apache 2.0</license>
-  <keywords>
-  ecosystem:cordova,cordova,cordova-ios,uiwebview,wkwebview,localstorage</keywords>
-  <repo>
-  https://github.com/plusnewmedia/cordova-plugin-migrate-localstorage.git</repo>
-  <issue>
-  https://github.com/plusnewmedia/cordova-plugin-migrate-localstorage/issues/</issue>
+  <keywords>ecosystem:cordova,cordova,cordova-ios,uiwebview,wkwebview,localstorage</keywords>
+
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
       <feature name="MigrateLocalStorage">
