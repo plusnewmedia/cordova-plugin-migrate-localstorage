@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
-id="cordova-plugin-migrate-localstorage" version="0.0.2">
+id="cordova-plugin-migrate-localstorage" version="0.0.3">
   <name>Migrate WebView Data</name>
   <description>Migrate LocalStorage data from UIWebView to
   WKWebView</description>
@@ -9,9 +9,9 @@ id="cordova-plugin-migrate-localstorage" version="0.0.2">
   <keywords>
   ecosystem:cordova,cordova,cordova-ios,uiwebview,wkwebview,localstorage</keywords>
   <repo>
-  https://github.com/ionic-team/cordova-plugin-migrate-localstorage.git</repo>
+  https://github.com/plusnewmedia/cordova-plugin-migrate-localstorage.git</repo>
   <issue>
-  https://github.com/ionic-team/cordova-plugin-migrate-localstorage/issues/</issue>
+  https://github.com/plusnewmedia/cordova-plugin-migrate-localstorage/issues/</issue>
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
       <feature name="MigrateLocalStorage">
