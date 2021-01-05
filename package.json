@@ -1,6 +1,8 @@
 {
-  "name": "cordova-plugin-migrate-localstorage",
-  "version": "0.0.3",
+  "author": "Martin Kleinschrodt <martin@maklesoft.com>",
+  "bugs": {
+    "url": "https://github.com/plusnewmedia/cordova-plugin-migrate-localstorage/issues/"
+  },
   "cordova": {
     "id": "cordova-plugin-migrate-localstorage",
     "platforms": [
@@ -8,8 +10,6 @@
     ]
   },
   "description": "Migrate LocalStorage data from UIWebView to WKWebView",
-  "repository": "https://github.com/plusnewmedia/cordova-plugin-migrate-localstorage.git",
-  "issue": "https://github.com/plusnewmedia/cordova-plugin-migrate-localstorage/issues/",
   "keywords": [
     "ecosystem:cordova",
     "cordova",
@@ -18,6 +18,11 @@
     "wkwebview",
     "localstorage"
   ],
-  "author": "Martin Kleinschrodt <martin@maklesoft.com>",
-  "license": "Apache 2.0"
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-migrate-localstorage",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plusnewmedia/cordova-plugin-migrate-localstorage.git"
+  },
+  "version": "0.0.3"
 }
